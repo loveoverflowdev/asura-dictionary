@@ -2,7 +2,7 @@ plugins {
   id 'java'
   id 'application'
   id 'org.javamodularity.moduleplugin' version '1.8.12'
-  id 'org.openjfx.javafxplugin' version '0.0.13'
+  id "org.openjfx.javafxplugin" version '0.1.0'
   id 'org.beryx.jlink' version '2.25.0'
 }
 
@@ -26,7 +26,7 @@ tasks.withType(JavaCompile) {
 
 application {
   mainModule = 'com.asura.asuradictionary'
-  mainClass = 'com.asura.asuradictionary.HelloApplication'
+  mainClass = 'com.asura.asuradictionary.App'
 }
 
 javafx {
@@ -35,6 +35,12 @@ javafx {
 }
 
 dependencies {
+  implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
+  implementation group: 'org.jsoup', name: 'jsoup', version: '1.15.3'
+  implementation group: 'javazoom', name: 'jlayer', version: '1.0.1'
+  implementation group: 'org.openjfx', name: 'javafx-web', version: '15.0.1'
+
+  implementation 'org.openjfx:javafx:14'
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
